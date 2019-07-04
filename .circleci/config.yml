@@ -30,10 +30,11 @@ jobs:
 
       # build the application image
       - run: docker build -t app .
-      - run: docker tag app $DOCKER_USER/app:$CIRCLE_SHA1 $DOCKER_USER/app:latest
+      - run: docker tag app $DOCKER_USER/app:$CIRCLE_SHA1 
+      - run: docker tag app $DOCKER_USER/app:latest
 
       # deploy the image
-      - run: docker push $DOCKER_USER/app:$CIRCLE_SHA1
+      - run: docker push $DOCKER_USER/app:$CIRCLE_SHA1 $DOCKER_USER/app:latest
 workflows:
   version: 2
   myworkflow:
