@@ -1,3 +1,2 @@
 FROM alpine:latest
-COPY *.jar build/libs/
-CMD ["bash","ls ."]
+CMD ["bash","echo hello world"]
