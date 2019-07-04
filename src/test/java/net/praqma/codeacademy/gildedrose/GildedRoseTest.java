@@ -29,4 +29,19 @@ public class GildedRoseTest {
         assertTrue("brie is higher quality than it should be able to",app.items[0].quality==50 );
         
     }
+    @Test
+    public void Sulfuras() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 80) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Sulfuras changed value (shouldn't be able to)",app.items[0].quality==80 );
+        
+    }
+    @Test
+    public void conjured() {
+        Item[] items = new Item[] { new Item("Conjured", 10, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Conjured not changing at the required rate",app.items[0].quality==8 );
+    }
 }
