@@ -44,4 +44,28 @@ public class GildedRoseTest {
         app.updateQuality();
         assertTrue("Conjured not changing at the required rate",app.items[0].quality==8 );
     }
+
+    @Test
+    public void backstage_normal() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Backstage not updating correctly",app.items[0].quality==11 );
+    }
+
+    @Test
+    public void backstage_twice() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Backstage not updating correctly",app.items[0].quality==12);
+    }
+
+    @Test
+    public void backstage_trice() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Backstage not updating correctly",app.items[0].quality==13 );
+    }
 }
