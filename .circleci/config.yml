@@ -9,7 +9,7 @@ jobs:
           name: Test the commit
           command: gradle test
       - store_test_results:
-          path: test/test-results
+          path: build/test-results
   package:
     docker:
       - image: circleci/openjdk:8-jdk
@@ -19,7 +19,7 @@ jobs:
           name: Create the package
           command: gradle jar
       - store_artifacts:
-          path: package/libs
+          path: build/libs
           destination: prefix
 workflows:
   version: 2
